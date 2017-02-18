@@ -1,0 +1,33 @@
+html, body {
+    background: #999999;
+    margin: 0px;
+    padding: 0px;
+}
+
+div#content {
+    background: #FFFFFF;
+    width: 40%;
+    height: 100%;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+#content h1 {
+    text-align: center;
+}
+
+div#homepage-buttons {
+    width: 100%;
+}
+
+#homepage-buttons table {
+    width: 100%;
+}
+
+#homepage-buttons td {
+    width: 50%;
+    padding: 10px;
+    background: #CCCCFF;
+    border: #9999FF 1px solid;
+    border-radius: 3px;
+}
