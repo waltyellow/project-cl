@@ -4,30 +4,64 @@ html, body {
     padding: 0px;
 }
 
-div#content {
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+#content {
     background: #FFFFFF;
-    width: 40%;
+    width: 600px;
     height: 100%;
     margin: 0px auto;
     padding: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #content {
+        width: 100%;
+    }
 }
 
 #content h1 {
     text-align: center;
 }
 
-div#homepage-buttons {
-    width: 100%;
+#homepage-buttons {
+    width: 85%;
+    margin: auto;
 }
 
-#homepage-buttons table {
-    width: 100%;
+@media only screen and (max-width: 1000px) {
+    #homepage-buttons {
+        width: 100%;
+    }
 }
 
-#homepage-buttons td {
-    width: 50%;
-    padding: 10px;
+.button-row {
+    width: 100%;
+    display: flex;
+}
+
+.homepage-button {
+    margin: 10px;
+    padding: 30px 10px;
+
+    color: #000000;
+    font-size: 120%;
+    text-decoration: none;
+
     background: #CCCCFF;
     border: #9999FF 1px solid;
     border-radius: 3px;
+
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.homepage-button:hover {
+    background: #9999FF;
 }
