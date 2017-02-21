@@ -18,6 +18,8 @@ h1 {
     height: 100%;
     margin: 0px auto;
     padding: 5px;
+    border-left: 2px solid #666666;
+    border-right: 2px solid #666666;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -28,6 +30,32 @@ h1 {
 
 #content h1 {
     text-align: center;
+}
+
+hr {
+    border-width: 0px;
+    border-top: 2px solid #999999;
+    text-align: center;
+    height: 0px;
+    margin-bottom: 10px;
+}
+
+hr:after {
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    font-size: 120%;
+    background: #FFFFFF;
+    color: #333333;
+    padding: 0px 10px;
+}
+
+hr.explore:after {
+    content: 'Explore';
+}
+
+hr.questions:after {
+    content: 'Ask a question';
 }
 
 #homepage-buttons {
@@ -54,14 +82,39 @@ h1 {
     font-size: 120%;
     text-decoration: none;
 
-    background: #CCCCFF;
-    border: #9999FF 1px solid;
     border-radius: 3px;
 
     flex-basis: 100%;
     text-align: center;
 }
 
-.homepage-button:hover {
+.homepage-button, .question-search {
+    background: #CCCCFF;
+    border: #9999FF 1px solid;
+}
+
+.homepage-button:hover, .question-search:hover {
     background: #9999FF;
+}
+
+#homepage-questions {
+    width: 85%;
+    margin: auto;
+}
+
+#question-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.question-entry {
+    flex: 1;
+    margin: 10px 0px 10px 10px;
+    padding: 5px;
+}
+
+.question-search {
+    padding: 5px;
+    margin: 10px 10px 10px 0px;
 }
