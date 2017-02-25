@@ -1,0 +1,29 @@
+html, body {
+    background: #999999;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+#content {
+    background: #FFFFFF;
+    width: 600px;
+    height: 100%;
+    margin: 0px auto;
+    padding: 5px;
+    border-left: 2px solid #666666;
+    border-right: 2px solid #666666;
+}
+
+@media only screen and (max-width: 1000px) {
+    #content {
+        width: 100%;
+    }
+}
