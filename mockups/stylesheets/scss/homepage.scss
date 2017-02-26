@@ -1,3 +1,5 @@
+@import 'base';
+
 #content h1 {
     text-align: center;
 }
@@ -8,16 +10,16 @@ hr {
     text-align: center;
     height: 0px;
     margin-bottom: 10px;
-}
-
-hr:after {
-    display: inline-block;
-    position: relative;
-    top: -10px;
-    font-size: 120%;
-    background: #FFFFFF;
-    color: #333333;
-    padding: 0px 10px;
+    
+    &:after {
+        display: inline-block;
+        position: relative;
+        top: -10px;
+        font-size: 120%;
+        background: #FFFFFF;
+        color: #333333;
+        padding: 0px 10px;
+    }
 }
 
 hr.explore:after {
@@ -45,26 +47,15 @@ hr.questions:after {
 }
 
 .homepage-button {
+    @extend .button;
+    @include border-radius(3px);
+
     margin: 10px;
     padding: 30px 10px;
 
-    color: #000000;
     font-size: 120%;
-    text-decoration: none;
-
-    border-radius: 3px;
 
     flex-basis: 100%;
-    text-align: center;
-}
-
-.homepage-button, .question-search, .browse-previous {
-    background: #CCCCFF;
-    border: #9999FF 1px solid;
-}
-
-.homepage-button:hover, .question-search:hover {
-    background: #9999FF;
 }
 
 #homepage-questions {
@@ -85,18 +76,14 @@ hr.questions:after {
 }
 
 .question-search {
+    @extend .button;
+    @include border-radius(0px);
     padding: 5px;
     margin: 10px 10px 10px 0px;
 }
 
 .browse-previous {
+    @extend .button;
     padding: 5px;
     margin: 0px 10px 10px 10px;
-
-    color: #000000;
-    text-decoration: none;
-
-    border-radius: 3px;
-
-    text-align: center;
 }

@@ -27,3 +27,25 @@ h1 {
         width: 100%;
     }
 }
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.button {
+    @include border-radius(3px);
+
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+
+    background: #CCCCFF;
+    border: #9999FF 1px solid;
+
+    &:hover {
+        background: #9999FF;
+    }
+}
