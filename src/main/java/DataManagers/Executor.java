@@ -6,7 +6,7 @@ package DataManagers;
 public class Executor {
     public static void main(String[] args) {
         InitialDataManager initialDataManager = new InitialDataManager();
-        int sequence = (int) (Math.random() * 1000);
+        int sequence = (int) (Math.random() * 10000);
         String id = initialDataManager.write(""+sequence);
         System.out.println("Inserted SEQ# = " + sequence);
         System.out.println("Inserted @" + id);

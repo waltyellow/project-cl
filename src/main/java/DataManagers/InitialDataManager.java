@@ -33,7 +33,7 @@ public class InitialDataManager {
         DBCursor cursor = col.find(query);
         try {
             while(cursor.hasNext()) {
-                System.out.println(cursor.next().toString());
+                return (cursor.next().toString());
             }
         } finally {
             cursor.close();

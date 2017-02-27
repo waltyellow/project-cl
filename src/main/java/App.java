@@ -9,7 +9,11 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args){
-        String feedback = "Hello World";
+        get("/",(req,res)->generateFeedback());
+    }
+
+    private static String generateFeedback() {
+        String feedback = "Hello!";
         InitialDataManager initialDataManager = new InitialDataManager();
         int sequence = (int) (Math.random() * 1000);
         String id = initialDataManager.write(""+sequence);
@@ -17,7 +21,6 @@ public class App {
         feedback = feedback +("\nInserted @" + id);
         String seqout = initialDataManager.read(id);
         feedback = feedback +("\nReceived"+seqout);
-        final String output = feedback;
-        get("/",(req,res)->output);
+        return feedback;
     }
 }
