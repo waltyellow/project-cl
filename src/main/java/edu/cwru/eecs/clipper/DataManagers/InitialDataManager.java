@@ -1,4 +1,4 @@
-package edu.cwru.eecs.DataManagers;
+package edu.cwru.eecs.clipper.DataManagers;
 
 import com.mongodb.*;
 import org.bson.types.ObjectId;

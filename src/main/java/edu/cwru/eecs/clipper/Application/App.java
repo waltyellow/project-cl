@@ -1,6 +1,6 @@
-package edu.cwru.eecs.Application;
+package edu.cwru.eecs.clipper.Application;
 
-import edu.cwru.eecs.DataManagers.InitialDataManager;
+import edu.cwru.eecs.clipper.DataManagers.InitialDataManager;
 
 import static spark.Spark.*;
 
