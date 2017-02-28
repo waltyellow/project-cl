@@ -1,33 +1,30 @@
 @import 'base';
-
-#content h1 {
-    text-align: center;
-}
+@import 'titled';
 
 hr {
     border-width: 0px;
-    border-top: 2px solid #999999;
+    border-top: 2px solid $secondary1;
     text-align: center;
     height: 0px;
     margin-bottom: 10px;
-    
+
     &:after {
         display: inline-block;
         position: relative;
         top: -10px;
         font-size: 120%;
         background: #FFFFFF;
-        color: #333333;
+        color: $primary1;
         padding: 0px 10px;
     }
-}
 
-hr.explore:after {
-    content: 'Explore';
-}
+    &.explore:after {
+        content: 'Explore';
+    }
 
-hr.questions:after {
-    content: 'Ask a question';
+    &.questions:after {
+        content: 'Ask a question';
+    }
 }
 
 #homepage-buttons {
@@ -47,8 +44,7 @@ hr.questions:after {
 }
 
 .homepage-button {
-    @extend .button;
-    @include border-radius(3px);
+    @include button(#000000, $primary2, $secondary2, $secondary2, 3px);
 
     margin: 10px;
     padding: 30px 10px;
@@ -76,14 +72,13 @@ hr.questions:after {
 }
 
 .question-search {
-    @extend .button;
-    @include border-radius(0px);
+    @include button(#000000, $primary2, $secondary2, $secondary2, 0px);
     padding: 5px;
     margin: 10px 10px 10px 0px;
 }
 
 .browse-previous {
-    @extend .button;
+    @include button(#000000, $primary2, $secondary2, $secondary2, 3px);
     padding: 5px;
     margin: 0px 10px 10px 10px;
 }
