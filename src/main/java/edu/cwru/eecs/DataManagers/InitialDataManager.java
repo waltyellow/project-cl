@@ -1,11 +1,8 @@
-package DataManagers;
+package edu.cwru.eecs.DataManagers;
 
 import com.mongodb.*;
 import org.bson.types.ObjectId;
 
-/**
- * Created by zh on 2/27/17.
- */
 public class InitialDataManager {
     MongoClient mongoClient;
 

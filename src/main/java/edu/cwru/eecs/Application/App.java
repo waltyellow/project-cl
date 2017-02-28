@@ -1,9 +1,6 @@
+package edu.cwru.eecs.Application;
 
-/**
- * Created by David Merriman on 02/17/2017.
- */
-
-import DataManagers.InitialDataManager;
+import edu.cwru.eecs.DataManagers.InitialDataManager;
 
 import static spark.Spark.*;
 
@@ -13,6 +10,7 @@ public class App {
     }
 
     private static String generateFeedback() {
+        System.out.println("Generating feedback");
         String feedback = "Hello!";
         InitialDataManager initialDataManager = new InitialDataManager();
         int sequence = (int) (Math.random() * 1000);

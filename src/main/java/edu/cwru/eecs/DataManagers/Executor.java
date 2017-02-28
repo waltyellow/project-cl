@@ -1,8 +1,5 @@
-package DataManagers;
+package edu.cwru.eecs.DataManagers;
 
-/**
- * Created by zh on 2/27/17.
- */
 public class Executor {
     public static void main(String[] args) {
         InitialDataManager initialDataManager = new InitialDataManager();
