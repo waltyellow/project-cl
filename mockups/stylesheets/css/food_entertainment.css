@@ -22,6 +22,14 @@ h1 {
 @media only screen and (max-width: 1000px) {
   #content {
     width: 100%; } }
+#title-bar {
+  height: 60px;
+  width: 100%;
+  /*display: flex;*/ }
+
+#title-bar h1 {
+  line-height: 65px; }
+
 #sort-options {
   height: 40px;
   width: 100%;
@@ -47,12 +55,4 @@ h1 {
 .sort-button:last-child {
   border-right: 0px; }
 
-#title-bar {
-  height: 60px;
-  width: 100%;
-  /*display: flex;*/ }
-
-#title-bar h1 {
-  line-height: 65px; }
-
-/*# sourceMappingURL=events.css.map */
+/*# sourceMappingURL=food_entertainment.css.map */

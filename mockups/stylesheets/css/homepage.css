@@ -28,11 +28,11 @@ h1 {
   /*display: flex;*/ }
 
 #title-bar h1 {
-  line-height: 60px; }
+  line-height: 65px; }
 
 hr {
   border-width: 0px;
-  border-top: 2px solid #999999;
+  border-top: 1px solid #333333;
   text-align: center;
   height: 0px;
   margin-bottom: 10px; }
@@ -68,14 +68,14 @@ hr {
   color: #000000;
   text-decoration: none;
   text-align: center;
-  background: #CCCCFF;
-  border: #9999FF 1px solid;
+  background: #AAAAFF;
+  border: #333399 1px solid;
   margin: 10px;
   padding: 30px 10px;
   font-size: 120%;
   flex-basis: 100%; }
   .homepage-button:hover {
-    background: #9999FF; }
+    background: #8888FF; }
 
 #homepage-questions {
   width: 85%;
@@ -99,12 +99,12 @@ hr {
   color: #000000;
   text-decoration: none;
   text-align: center;
-  background: #CCCCFF;
-  border: #9999FF 1px solid;
+  background: #AAAAFF;
+  border: #333399 1px solid;
   padding: 5px;
   margin: 10px 10px 10px 0px; }
   .question-search:hover {
-    background: #9999FF; }
+    background: #8888FF; }
 
 .browse-previous {
   -webkit-border-radius: 3px;
@@ -114,11 +114,11 @@ hr {
   color: #000000;
   text-decoration: none;
   text-align: center;
-  background: #CCCCFF;
-  border: #9999FF 1px solid;
+  background: #AAAAFF;
+  border: #333399 1px solid;
   padding: 5px;
   margin: 0px 10px 10px 10px; }
   .browse-previous:hover {
-    background: #9999FF; }
+    background: #8888FF; }
 
 /*# sourceMappingURL=homepage.css.map */
