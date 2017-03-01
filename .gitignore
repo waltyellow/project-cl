@@ -22,3 +22,14 @@ hs_err_pid*
 
 # SASS cache files
 **/.sass-cache/
+
+# Maven build files
+target
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Velocity log file
+**/velocity.log

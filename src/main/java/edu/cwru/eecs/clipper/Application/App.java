@@ -1,23 +1,34 @@
 package edu.cwru.eecs.clipper.Application;
 
 import static spark.Spark.get;
+import static spark.Spark.staticFileLocation;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.common.base.MoreObjects;
 import edu.cwru.eecs.clipper.DataManagers.InitialDataManager;
 import edu.cwru.eecs.clipper.DataManagers.UserAccountDataManager;
 import edu.cwru.eecs.clipper.Models.UserAccount;
+import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import spark.template.velocity.VelocityTemplateEngine;
 
 public class App {
 
   public static void main(String[] args) {
+	staticFileLocation("/public");
     get("/", (req, res) -> generateFeedback());
     get("/experiment_reset", (req, res) -> experimentalReset());
     get("/create_user_test", (req, res) -> createUser(res));
     get("/get_user_test", (req, res) -> getUser(req));
+    get("/*", (req, res) -> render(new HashMap<>(), "/templates/" + req.splat()[0] + ".html"));
   }
 
+  private static String render(Map<String, Object> model, String template) {
+    return new VelocityTemplateEngine().render(new ModelAndView(model, template));
+  }
 
   private static String generateFeedback() {
     System.out.println("Generating feedback");
