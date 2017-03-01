@@ -1,0 +1,33 @@
+html, body {
+  background: #CCCCCC;
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  font-size: 16px; }
+
+h1 {
+  font-size: 250%;
+  text-align: center;
+  color: #333333; }
+
+#content {
+  background: #FFFFFF;
+  width: 600px;
+  height: 100%;
+  margin: 0px auto;
+  border-left: 2px solid #333333;
+  border-right: 2px solid #333333; }
+
+@media only screen and (max-width: 1000px) {
+  #content {
+    width: 100%; } }
+#title-bar {
+  height: 60px;
+  width: 100%;
+  /*display: flex;*/ }
+
+#title-bar h1 {
+  line-height: 65px; }
+
+/*# sourceMappingURL=campus_buildings.css.map */
