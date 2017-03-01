@@ -1,0 +1,123 @@
+html, body {
+  background: #CCCCCC;
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  font-size: 16px; }
+
+h1 {
+  font-size: 250%;
+  text-align: center;
+  color: #333333; }
+
+#content {
+  background: #FFFFFF;
+  width: 600px;
+  height: 100%;
+  margin: 0px auto;
+  border-left: 2px solid #333333;
+  border-right: 2px solid #333333; }
+
+@media only screen and (max-width: 1000px) {
+  #content {
+    width: 100%; } }
+#title-bar {
+  height: 60px;
+  width: 100%;
+  /*display: flex;*/ }
+  #title-bar h1 {
+    line-height: 65px; }
+
+hr {
+  border-width: 0px;
+  border-top: 1px solid #333333;
+  text-align: center;
+  height: 0px;
+  margin-bottom: 10px; }
+  hr:after {
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    font-size: 120%;
+    background: #FFFFFF;
+    color: #333333;
+    padding: 0px 10px; }
+  hr.explore:after {
+    content: 'Explore'; }
+  hr.questions:after {
+    content: 'Ask a question'; }
+
+#homepage-buttons {
+  width: 85%;
+  margin: auto; }
+
+@media only screen and (max-width: 1000px) {
+  #homepage-buttons {
+    width: 100%; } }
+.button-row {
+  width: 100%;
+  display: flex; }
+
+.homepage-button {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  background: #AAAAFF;
+  border: #333399 1px solid;
+  margin: 10px;
+  padding: 30px 10px;
+  font-size: 120%;
+  flex-basis: 100%; }
+  .homepage-button:hover {
+    background: #8888FF; }
+
+#homepage-questions {
+  width: 85%;
+  margin: auto; }
+
+#question-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+
+.question-entry {
+  flex: 1;
+  margin: 10px 0px 10px 10px;
+  padding: 5px; }
+
+.question-search {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  background: #AAAAFF;
+  border: #333399 1px solid;
+  padding: 5px;
+  margin: 10px 10px 10px 0px; }
+  .question-search:hover {
+    background: #8888FF; }
+
+.browse-previous {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  background: #AAAAFF;
+  border: #333399 1px solid;
+  padding: 5px;
+  margin: 0px 10px 10px 10px; }
+  .browse-previous:hover {
+    background: #8888FF; }
+
+/*# sourceMappingURL=homepage.css.map */
