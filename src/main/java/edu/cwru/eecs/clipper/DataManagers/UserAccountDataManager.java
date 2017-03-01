@@ -4,8 +4,10 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import edu.cwru.eecs.clipper.Models.UserAccount;
+import java.util.Objects;
 import java.util.Optional;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 
 public class UserAccountDataManager {
@@ -25,7 +27,8 @@ public class UserAccountDataManager {
   }
 
   public UserAccount createUserAccount() {
-    Document newUser = new Document("userId", "Placeholder");
+    Document newUser = new Document();
+    mongoCollection.insertOne(newUser);
     return convertToUserAccountForNotNullResult(newUser);
   }
 
@@ -38,7 +41,7 @@ public class UserAccountDataManager {
 
 
   public Optional<UserAccount> findByUserID(String userId) {
-    Document query = new Document("user_id", userId);
+    Document query = new Document("_id", new ObjectId(userId));
     Document result = (Document) mongoCollection.find(query).first();
     Optional<UserAccount> userAccountOptional = convertToUserAccount(
         result);
@@ -46,8 +49,8 @@ public class UserAccountDataManager {
   }
 
   public void updateUserAccount(UserAccount userAccount) {
-    Document query = new Document("user_id", userAccount.getUserId());
-    mongoCollection.findOneAndUpdate(query, convertToDocument(userAccount));
+    Document query = new Document("_id", new ObjectId(userAccount.getUserId()));
+    mongoCollection.findOneAndReplace(query, convertToDocument(userAccount));
   }
 
   public void deleteUserAccountById(UserAccount userAccount) {
@@ -56,9 +59,9 @@ public class UserAccountDataManager {
     mongoCollection.findOneAndUpdate(query, convertToDocument(userAccount));
   }
 
-  private static Optional<UserAccount> convertToUserAccount(Document result) {
+  static Optional<UserAccount> convertToUserAccount(Document result) {
     Optional<UserAccount> userAccountOptional = Optional.empty();
-    if ((result != null) && !result.getBoolean("isDeleted")) {
+    if ((result != null) && !result.getBoolean("isDeleted",false)) {
       UserAccount userAccount = convertToUserAccountForNotNullResult(result);
       userAccountOptional = Optional.of(userAccount);
     }
@@ -66,17 +69,18 @@ public class UserAccountDataManager {
   }
 
   static UserAccount convertToUserAccountForNotNullResult(Document result) {
+    System.out.println(result.toJson());
     return new UserAccount(
-        result.get("user_id").toString(),
-        result.get("facebook_id").toString(),
-        result.get("twitter_id").toString(),
-        result.get("primary_organization").toString(),
-        result.get("email").toString());
+        Objects.toString(result.get("_id")),
+        Objects.toString(result.get("facebook_id")),
+        Objects.toString(result.get("twitter_id")),
+        Objects.toString(result.get("primary_organization")),
+        Objects.toString(result.get("email")));
   }
 
   static Document convertToDocument(UserAccount userAccount) {
     Document result = new Document();
-    result.put("user_id", userAccount.getUserId());
+    result.put("_id", new ObjectId(userAccount.getUserId()));
     result.put("facebook_id", userAccount.getFacebookId());
     result.put("twitter_id", userAccount.getTwitterId());
     result.put("primary_organization", userAccount.getPrimaryOrganization());
