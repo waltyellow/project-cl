@@ -7,7 +7,9 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args){
         get("/",(req,res)->generateFeedback());
+        get("/experiment_reset",(req,res)->experimentalReset());
     }
+
 
     private static String generateFeedback() {
         System.out.println("Generating feedback");
@@ -18,7 +20,12 @@ public class App {
         feedback = feedback + ("\nInserted SEQ# = " + sequence);
         feedback = feedback +("\nInserted @" + id);
         String seqout = initialDataManager.read(id);
-        feedback = feedback +("\nReceived"+seqout);
+        feedback = feedback +("\nSaved"+seqout);
         return feedback;
+    }
+
+    private static String experimentalReset(){
+        InitialDataManager.CreateCollection();
+        return "resetted";
     }
 }
