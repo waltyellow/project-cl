@@ -26,9 +26,8 @@ h1 {
   height: 60px;
   width: 100%;
   /*display: flex;*/ }
-
-#title-bar h1 {
-  line-height: 65px; }
+  #title-bar h1 {
+    line-height: 65px; }
 
 hr {
   border-width: 0px;

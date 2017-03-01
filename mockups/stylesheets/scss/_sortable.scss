@@ -13,8 +13,8 @@ $bar-height: 40px;
     flex-basis: 100%;
 
     font-size: 120%;
-}
 
-.sort-button:last-child {
-    border-right: 0px;
+    &:last-child {
+        border-right: 0px;
+    }
 }
