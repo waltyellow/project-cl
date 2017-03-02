@@ -12,14 +12,21 @@ import java.util.*
 class UserAccountDataManagerKoltin constructor(){
 
     private val DATABASE = "experimental"
-    private val COLLECTION = "user_accounts"
+    private val COLLECTION = "user_accounts1"
     private var mongoClient = MongoClient(MongoClientURI("mongodb://localhost:27017"))
     private var mongoCollection = mongoClient.getDatabase(DATABASE).getCollection(COLLECTION)
 
     fun createUserAccount(): UserAccount {
         val newUser = Document()
-        mongoCollection?.insertOne(newUser)
-        return UserAccountDataManager.convertToUserAccountForNotNullResult(newUser);
+        mongoCollection.insertOne(newUser)
+        val user = convertToUserAccountForNotNullResult(result=newUser)
+        user.email=""
+        user.facebookId=""
+        user.primaryOrganization=""
+        user.twitterId=""
+        mongoCollection.findOneAndReplace(newUser,convertToDocument(user))
+        println("userCreated")
+        return user
     }
 
     fun findByFacebookID(facebookId: String): Optional<UserAccount> {
@@ -59,20 +66,20 @@ class UserAccountDataManagerKoltin constructor(){
     internal fun convertToUserAccountForNotNullResult(result: Document): UserAccount {
         println(result.toJson())
         return UserAccount(
-                Objects.toString(result["_id"]),
-                Objects.toString(result["facebook_id"]),
-                Objects.toString(result["twitter_id"]),
-                Objects.toString(result["primary_organization"]),
-                Objects.toString(result["email"]))
+                result["_id"].toString(),
+                result["facebook_id"]?.toString(),
+                result["twitter_id"]?.toString(),
+                result["primary_organization"]?.toString(),
+                result["email"]?.toString())
     }
 
     internal fun convertToDocument(userAccount: UserAccount): Document {
         val result = Document()
-        result.put("_id", ObjectId(userAccount.userId))
-        result.put("facebook_id", userAccount.facebookId)
-        result.put("twitter_id", userAccount.twitterId)
-        result.put("primary_organization", userAccount.primaryOrganization)
-        result.put("email", userAccount.email)
+        result["facebook_id"] = userAccount.facebookId
+        result["twitter_id"] = userAccount.twitterId
+        result["primary_organization"] = userAccount.primaryOrganization
+        result["_id"] = ObjectId(userAccount.userId)
+        result["email"] = userAccount.email
         return result
     }
 }

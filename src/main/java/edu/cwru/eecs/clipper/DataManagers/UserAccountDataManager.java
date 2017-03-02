@@ -13,7 +13,7 @@ import org.bson.types.ObjectId;
 public class UserAccountDataManager {
 
   private final String DATABASE = "experimental";
-  private final String COLLECTION = "user_accounts";
+  private final String COLLECTION = "user_accounts1";
   private MongoClient mongoClient;
   private MongoCollection mongoCollection;
 

@@ -39,11 +39,9 @@ public class App {
   }
 
   private static String createUser(Response res){
-    UserAccountDataManager userAccountDataManager = new UserAccountDataManager();
+    UserAccountDataManagerKoltin userAccountDataManager = new UserAccountDataManagerKoltin();
     UserAccount account = userAccountDataManager.createUserAccount();
-    System.out.println(MoreObjects.toStringHelper(account));
     account.setEmail("zxh108@test.case.edu");
-    System.out.println(MoreObjects.toStringHelper(account));
     userAccountDataManager.updateUserAccount(account);
     res.redirect("/get_user_test?u="+account.getUserId());
     return account.toString();
@@ -51,6 +49,6 @@ public class App {
 
   private static String getUser(Request request){
     String userId = request.queryMap("u").value();
-    return new UserAccountDataManager().findByUserID(userId).toString();
+    return new UserAccountDataManagerKoltin().findByUserID(userId).toString();
   }
 }

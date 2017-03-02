@@ -58,10 +58,10 @@ public class UserAccount {
         this.email = email;
     }
 
-    private String userId;
-    private String facebookId;
-    private String twitterId;
-    private String primaryOrganization;
-    private String email;
+    private String userId = "";
+    private String facebookId = "";
+    private String twitterId ="";
+    private String primaryOrganization = "";
+    private String email = "";
 
 }
