@@ -32,4 +32,4 @@ target
 .settings/
 
 # Velocity log file
-**/velocity.log
+**/velocity.log*
