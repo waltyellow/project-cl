@@ -12,15 +12,6 @@ public class UserAccount {
         this.email = email;
     }
 
-//    UserAccount(Document dbRecord){
-//        this(
-//            dbRecord.get("user_id").toString(),
-//            dbRecord.get("facebook_id").toString(),
-//            dbRecord.get("twitter_id").toString(),
-//            dbRecord.get("primary_organization").toString(),
-//            dbRecord.get("email").toString()
-//        );
-//    }
 
     public String getUserId() {
         return userId;

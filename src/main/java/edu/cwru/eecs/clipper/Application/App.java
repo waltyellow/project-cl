@@ -2,9 +2,8 @@ package edu.cwru.eecs.clipper.Application;
 
 import static spark.Spark.get;
 
-import com.google.common.base.MoreObjects;
+import com.google.gson.Gson;
 import edu.cwru.eecs.clipper.DataManagers.InitialDataManager;
-import edu.cwru.eecs.clipper.DataManagers.UserAccountDataManager;
 import edu.cwru.eecs.clipper.DataManagers.UserAccountDataManagerKoltin;
 import edu.cwru.eecs.clipper.Models.UserAccount;
 import spark.Request;
@@ -34,13 +33,14 @@ public class App {
   }
 
   private static String experimentalReset() {
-    InitialDataManager.CreateCollection();
-    return "resetted";
+    InitialDataManager.Companion.CreateCollection();
+    return "reseted";
   }
 
   private static String createUser(Response res){
     UserAccountDataManagerKoltin userAccountDataManager = new UserAccountDataManagerKoltin();
     UserAccount account = userAccountDataManager.createUserAccount();
+    System.out.println(new Gson().toJson(account));
     account.setEmail("zxh108@test.case.edu");
     userAccountDataManager.updateUserAccount(account);
     res.redirect("/get_user_test?u="+account.getUserId());
