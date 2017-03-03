@@ -23,8 +23,9 @@ hs_err_pid*
 # SASS cache files
 **/.sass-cache/
 
-# Maven build files
+# Maven & Eclipse build files
 target
+bin
 
 # Eclipse project files
 .classpath

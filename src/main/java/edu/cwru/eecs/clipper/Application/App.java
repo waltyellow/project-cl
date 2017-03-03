@@ -5,6 +5,8 @@ import static spark.Spark.staticFileLocation;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.google.common.base.MoreObjects;
 import edu.cwru.eecs.clipper.DataManagers.InitialDataManager;
@@ -23,11 +25,18 @@ public class App {
     get("/experiment_reset", (req, res) -> experimentalReset());
     get("/create_user_test", (req, res) -> createUser(res));
     get("/get_user_test", (req, res) -> getUser(req));
+    get("/events", (req, res) -> render(fakeEventData(), "/templates/events.vm"));
     get("/*", (req, res) -> render(new HashMap<>(), "/templates/" + req.splat()[0] + ".html"));
   }
 
   private static String render(Map<String, Object> model, String template) {
     return new VelocityTemplateEngine().render(new ModelAndView(model, template));
+  }
+  
+  private static Map<String, Object> fakeEventData() {
+	  Map<String, Object> eventMap = new HashMap<>();
+	  eventMap.put("events", Stream.of("event1", "event2").collect(Collectors.toList()));
+	  return eventMap;
   }
 
   private static String generateFeedback() {
